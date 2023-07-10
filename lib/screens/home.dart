@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'my_rating_bar.dart';
-import 'my_second_widget.dart';
+import 'scaffold_master.dart';
+import 'test.dart';
 
 class MyHome extends StatelessWidget {
   const MyHome({
@@ -24,6 +25,7 @@ class MyHome extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
+                    //ListTile로 바꾸기
                     height: 100,
                     width: 400,
                     decoration: const BoxDecoration(
@@ -35,14 +37,16 @@ class MyHome extends StatelessWidget {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  const MyRatingBarTestPage(),
+                              builder: (context) => const MyRatingBarTestPage(),
                             ),
                           );
                         },
                         child: const Text("My Rating Bar"),
                       ),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 30,
                   ),
                   Container(
                     height: 100,
@@ -57,11 +61,34 @@ class MyHome extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  const MySecondWidgetTestPage(),
+                                  const ScaffoldMasterScreen(),
                             ),
                           );
                         },
                         child: const Text("실험체 2"),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
+                  ),
+                  Container(
+                    height: 100,
+                    width: 400,
+                    decoration: const BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.all(Radius.circular(20))),
+                    child: Center(
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const TestScreen(),
+                            ),
+                          );
+                        },
+                        child: const Text("Test Page"),
                       ),
                     ),
                   ),
@@ -73,6 +100,10 @@ class MyHome extends StatelessWidget {
   }
 }
 
+//ToDo
+  // 화면 전환버튼 text->container범위로 변경
+  //화면 아래부분 꾸미기
+  //데이터 많아지면 listView위젯으로 단순반복 continer 줄이기
 
 /*
 ListView.separated(
